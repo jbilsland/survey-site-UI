@@ -7,7 +7,7 @@
       <meta charset = "utf-8">
       <title>The Creighton ROTC Survey Destination</title>
 	  <link rel="stylesheet" href="surveyhome.css">
-	  <script src="c2cscript.js"></script>
+	  <script src="processRegistration.js"></script>
    </head>
    
    <body> 
@@ -30,16 +30,15 @@
 		
 		<form>
 			<h3>Create a TShirt Order</h3>
-			<p><label for="tsName">Survey name</label>
-				<input type="text" placeholder="Enter Name" name="tsName" id="tsName" required> </p>
-			<p><label for="tsPhoto">Photo</label>
+			<p><label for="tsName">Name of Survey</label>
 				<input type="text" placeholder="Enter Name" name="tsName" id="tsName" required> </p>
 					
 			<p><b>Questions that will be asked:</b></p>
 			<p>What is your name?<p>
 			<p>What is your shirt size?</p>
 			
-			<button type="submit" class="registerbtn">Publish survey</button>
+			<!--<button type="submit" class="registerbtn">Publish</button> -->
+			<input type = "submit" value = "Publish" onclick="getCreateTSOrderInfo()" />
 		</form>
 		
 		

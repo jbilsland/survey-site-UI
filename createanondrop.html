@@ -7,7 +7,7 @@
       <meta charset = "utf-8">
       <title>The Creighton ROTC Survey Destination</title>
 	  <link rel="stylesheet" href="surveyhome.css">
-	  <script src="c2cscript.js"></script>
+	  <script src="processRegistration.js"></script>
    </head>
    
    <body> 
@@ -29,15 +29,16 @@
 		</nav>
 		
 		<form>
-			<h3>Create an Anonymous Dropbox</h3>
-			<p><label for="name">Name of Dropbox</label>
-				<input type="text" placeholder="Enter Name" name="dbName" id="dbName" required> </p>
+			<h3>Create an Anonymous Feedback Survey</h3>
+			<p><label for="fbName">Name of Survey</label>
+				<input type="text" placeholder="Enter Name" name="fbName" id="fbName" required> </p>
 			
 			<!--<p><label for="input">Feedback</label>
 				<textarea rows="5" cols="30"  type="text" placeholder="There will be a textbox for survey takers to enter their comments" name="dbComments" id="dbComments"></textarea></p>-->
 			<p><b>Questions to be asked</b><p>
 			<p>Feedback (textbox)</p>
-			<button type="submit" class="registerbtn">Publish survey</button>
+			<!--<button type="submit" class="publishAnonFeed">Publish</button> -->
+			<input type = "submit" value = "Publish" onclick="getCreateAnonFBInfo()" />
 		</form>
 		
 		

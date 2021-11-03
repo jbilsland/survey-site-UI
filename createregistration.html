@@ -7,7 +7,7 @@
       <meta charset = "utf-8">
       <title>The Creighton ROTC Survey Destination</title>
 	  <link rel="stylesheet" href="surveyhome.css">
-	  <script src="c2cscript.js"></script>
+	  <script src="processRegistration.js"></script>
    </head>
    
    <body> 
@@ -28,21 +28,18 @@
 			<ul>
 		</nav>
 		
-		<form>
+		<form" method="post" id="createregister">
 			<h3>Create an Event Registration</h3>
 			<p><label for="eventName">Name of Event</label>
 				<input type="text" placeholder="Enter Name of Event" name="eventName" id="eventName" required> <p>
-			
-			<p><label for="eventDescription">Description of event</label>
-				<input type="text" placeholder="Description" name="eventDescription" id="eventDescription" required></p>
 				
 			<p><b>Question that will be asked:</b></p>
 			<p>What is your name? (Textbox)</p>
 			<p>Are you attending? (Yes or No)</p>
 			<p>How many people are you bringing with you? (Number)</p>
 			
-			<p><button type="submit" class="registerbtn">Publish survey</button></p>
-			
+			<!--<p><button type="submit" id="registerbtn">Publish survey</button></p> -->
+			<input type = "submit" value = "Publish" onclick="getCreateRegistrationInfo()" />
 		</form>
 		
 		
