@@ -7,7 +7,19 @@
       <meta charset = "utf-8">
       <title>The Creighton ROTC Survey Destination</title>
 	  <link rel="stylesheet" href="surveyhome.css">
-	  <script src="processRegistration.js"></script>
+	  <!--<script src="processRegistration.js"></script>-->
+	  <script> function myFunction() {
+		let userInput = document.getElementById('tsName').value;
+		let dbSurvey = {name:userInput};
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST','http://localhost:8080/createSurvey',true);
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.send(JSON.stringify(dbSurvey));
+		console.log(dbSurvey);
+
+		document.write("<p>"+dbSurvey+"</p>");
+	  }
+	</script>
    </head>
    
    <body> 
@@ -28,18 +40,17 @@
 			<ul>
 		</nav>
 		
-		<form>
+		<form method="post">
 			<h3>Create a TShirt Order</h3>
 			<p><label for="tsName">Name of Survey</label>
-				<input type="text" placeholder="Enter Name" name="tsName" id="tsName" required> </p>
+				<input type="text" placeholder="Enter Name" name="tsName" id="tsName"> </p>
 					
 			<p><b>Questions that will be asked:</b></p>
 			<p>What is your name?<p>
 			<p>What is your shirt size?</p>
 			
-			<!--<button type="submit" class="registerbtn">Publish</button> -->
-			<input type = "submit" value = "Publish" onclick="getCreateTSOrderInfo()" />
-		</form>
+			<button type='button' onclick="myFunction()">Publish</button>
+			</form>
 		
 		
    </body>
