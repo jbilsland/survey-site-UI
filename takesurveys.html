@@ -7,10 +7,19 @@
       <meta charset = "utf-8">
       <title>The Creighton ROTC Survey Destination</title>
 	  <link rel="stylesheet" href="surveyhome.css">
-	  <script src="c2cscript.js"></script>
+	  <script> function loadQuestions() {
+		  var xhr = new XMLHttpRequest();
+		  xhr.open('GET','http://localhost:8080/getALlSurveyNames',true)
+		  xhr.onload = function loadQuestions2() {
+			  const surveryQuestions = xhr.response;
+			  document.getElementById('test').innerHTML += surveryQuestions;
+		  }
+		  xhr.send();
+		}
+	  </script>
    </head>
    
-   <body> 
+   <body onload="loadQuestions()">
 		<!--<img id "logo2" alt="Logo" src="curotclogo.jpeg">-->
 		<div class="head">
 			<img id "logo3" alt="Logo" src="cuschoollogo.png">
@@ -33,6 +42,7 @@
 		<div id="surveys">
 		
 		</div>
+		<p id='test'></p>
 
 		<!-- <div class="card" id="card1">
 			<div class="container">
