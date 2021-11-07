@@ -7,7 +7,7 @@
       <meta charset = "utf-8">
       <title>The Creighton ROTC Survey Destination</title>
 	  <link rel="stylesheet" href="surveyhome.css">
-	  <!--<script src="processRegistration.js"></script>-->
+	  <script src="processRegistration.js"></script>
 	  <script> function myFunction() {
 		let userInput = document.getElementById('tsName').value;
 		let dbSurvey = {name:userInput};
@@ -16,8 +16,9 @@
 		xhr.setRequestHeader("Content-Type", "application/json");
 		xhr.send(JSON.stringify(dbSurvey));
 		console.log(dbSurvey);
-
-		document.write("<p>"+dbSurvey+"</p>");
+		//document.write("<p>Thank you for creating the survey: "+JSON.stringify(dbSurvey)+"<a href='companysurveysite.html'> Home</a></p>");
+		//document.getElementById('finish').innerHTML = "<p>Thank you for creating the survey: "+JSON.stringify(dbSurvey)+"<a href='companysurveysite.html'> Home</a></p>";
+		window.alert('Thank you for creating the survey!'); //+JSON.stringify(dbSurvey));
 	  }
 	</script>
    </head>
@@ -52,5 +53,6 @@
 			<button type='button' onclick="myFunction()">Publish</button>
 			</form>
 		
-		
+		<div id="finish">
+		</div>
    </body>
