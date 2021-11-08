@@ -6,15 +6,16 @@
    <head>
       <meta charset = "utf-8">
       <title>The Creighton ROTC Survey Destination</title>
-	  <link rel="stylesheet" href="surveyhome.css">
+	  <link rel="stylesheet" href="surveyhome2.css">
 	  <script> function loadQuestions() {
 		  var xhr = new XMLHttpRequest();
 		  xhr.open('GET','http://localhost:8080/getALlSurveyNames',true)
 		  xhr.onload = function loadQuestions2() {
 			  var surveryQuestions = xhr.response;
 			  var myArr = JSON.parse(surveryQuestions);
-			  for (let i = 0; i<myArr.length; i++){
-			  document.getElementById('test').innerHTML +="<p>"+ myArr[i]+"</p>";
+			  var myArr2 = myArr.reverse();
+			  for (let i = 0; i<myArr2.length; i++){
+			  document.getElementById('test').innerHTML +="<div class='card'id='card1'><div class'container'><h3><a href='contactus.html'>"+myArr2[i]+"</b></h3></div></div>";
 			  }
 		  }
 		  xhr.send();
@@ -40,31 +41,11 @@
 			<ul>
 		</nav>
 		
-		<h1> Take an ROTC Survey </h1>
+		<h1> Take a Survey </h1>
 		
 		<div id="surveys">
 		
 		</div>
-		<p id='test'></p>
-
-		<!-- <div class="card" id="card1">
-			<div class="container">
-				<h3><b>Survey name.....</b></h3>
-				
-			</div>
-		</div>
-		<div class="card" id="card1">
-			<div class="container">
-				<h3><b>Survey name.....</b></h3>
-				
-			</div>
-		</div>
-		<div class="card" id="card1">
-			<div class="container">
-				<h3><b>Survey name.....</b></h3>
-				
-			</div>
-		</div> -->
-		
-		
+		<p id='test'></p>		
    </body>
+ </html>

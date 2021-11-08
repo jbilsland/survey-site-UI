@@ -1,4 +1,4 @@
-/* Stylesheet for c2chome */
+/* Stylesheet for surveyhome2 */
 html {
 	background-color:rgba(145, 191, 191, .8);
 	font-family: arial;
@@ -44,11 +44,10 @@ img {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
   transition: 0.3s;
   width: 25%;
-  min-width:200px;
-  min-height:120px;
-  /*height:50%;*/
+  height:50%;
   float:left;
-  margin:2%;
+  margin-left:2%;
+  margin-right:2%;
   text-align:center;
   border-radius:25px;
 }
@@ -90,7 +89,6 @@ img {
                 inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
-
 .styled1:hover {
     background-color: rgba(255, 0, 0, 1);
 }
@@ -101,7 +99,34 @@ img {
 }
 /* end of style for the 1st cards button*/
 
+/* start of style for the 2nd cards button*/
+.styled2 {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: #336600;
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
 
+.styled2:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styled2:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+/* end of style for the 2nd cards button*/
 
 
 /*navbar*/
