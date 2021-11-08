@@ -51,7 +51,7 @@ img {
   float:left;
   margin:4px;
   margin-right:2%;
-  text-align:left;
+  /*text-align:left;*/
   border-radius:10px;
 }
 
@@ -153,5 +153,41 @@ li a {
 	display: flex;
 	align-items:center;
 	font-family: arial;
+}
+
+
+
+/*Slide in effect for surveys*/
+
+#test {
+    float:right;
+
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+		margin: 75% /*-100% -25% 150%*/ 0% 0% 0%;
+        /*margin-left: 150%;
+		margin-right: -100%;*/
+		
+    }
+    to {
+        margin: 0%;
+    }
+}
+
+/*Take a survey margin*/
+
+h2 {
+	margin-bottom:0px;
+}
+
+/*aligns the results link on the right of the card*/
+span a{
+	float:right;
+	color:#e8d3b5/*#EADDCA this is the color of the card*/ !important;
+	text-decoration:none;
 }
 

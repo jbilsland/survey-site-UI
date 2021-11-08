@@ -15,7 +15,7 @@
 			  var myArr = JSON.parse(surveryQuestions);
 			  var myArr2 = myArr.reverse();
 			  for (let i = 0; i<myArr2.length; i++){
-			  document.getElementById('test').innerHTML +="<div class='card'id='card1'><div class'container'><h3><a href='contactus.html'>"+myArr2[i]+"</b></h3></div></div>";
+			  document.getElementById('test').innerHTML +="<div class='card'id='card1'><div class'container'><h3><a href='contactus.html'>"+myArr2[i]+"</a><span id='results'><a href='contactus.html'>Results</a></span></b></h3></div></div>";
 			  }
 		  }
 		  xhr.send();
@@ -41,7 +41,7 @@
 			<ul>
 		</nav>
 		
-		<h1> Take a Survey </h1>
+		<h2> Take a Survey </h2>
 		
 		<div id="surveys">
 		
