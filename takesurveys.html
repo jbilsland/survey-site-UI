@@ -11,8 +11,11 @@
 		  var xhr = new XMLHttpRequest();
 		  xhr.open('GET','http://localhost:8080/getALlSurveyNames',true)
 		  xhr.onload = function loadQuestions2() {
-			  const surveryQuestions = xhr.response;
-			  document.getElementById('test').innerHTML += surveryQuestions;
+			  var surveryQuestions = xhr.response;
+			  var myArr = JSON.parse(surveryQuestions);
+			  for (let i = 0; i<myArr.length; i++){
+			  document.getElementById('test').innerHTML +="<p>"+ myArr[i]+"</p>";
+			  }
 		  }
 		  xhr.send();
 		}
