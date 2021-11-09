@@ -185,9 +185,22 @@ h2 {
 }
 
 /*aligns the results link on the right of the card*/
-span a{
-	float:right;
-	color:#e8d3b5/*#EADDCA this is the color of the card*/ !important;
+#results{
+	float:right-side;
+	color:/*#e8d3b5 #EADDCA this is the color of the card*/ !important;
 	text-decoration:none;
+}
+
+button{
+	float:right;
+	margin-right:5px;
+	background-color:#EADDCA;
+	border:none;
+}
+
+
+
+span {
+	vertical-align:middle;
 }
 
