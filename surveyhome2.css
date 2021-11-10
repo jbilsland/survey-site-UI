@@ -3,13 +3,14 @@ html {
 	background-color:rgba(145, 191, 191, .8);
 	font-family: arial;
 	min-width: 660px;
+  /*border: 3px solid black;*/
 }
+
 body {
 	margin-left:10%;
 	margin-right: 10%;
 	/*background-color: white;*/
 	padding:5px;
-	/*border: 1px solid lightblue;*/
 }
 
 h1 {
@@ -161,9 +162,9 @@ li a {
 /*Slide in effect for surveys*/
 
 #test {
-    float:right;
+    float:left;
 
-    animation-duration: 1s;
+    animation-duration: 1.5s;
     animation-name: slidein;
 }
 

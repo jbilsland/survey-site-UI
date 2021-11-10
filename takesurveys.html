@@ -10,12 +10,20 @@
 	  <script> function loadQuestions() {
 		  var xhr = new XMLHttpRequest();
 		  xhr.open('GET','http://localhost:8080/getALlSurveyNames',true)
-		  xhr.onload = function loadQuestions2() {
+		  xhr.onload = function loadQuestions2() { //this function loads all of the suvey names in the db
 			  var surveryQuestions = xhr.response;
 			  var myArr = JSON.parse(surveryQuestions);
-			  var myArr2 = myArr.reverse();
+			  var myArr2 = myArr.reverse(); //displays the survey with the most recent at the top
 			  for (let i = 0; i<myArr2.length; i++){
-			  document.getElementById('test').innerHTML +="<div class='card'id='card1'><div class:'container'><h3><a href='contactus.html'>"+myArr2[i]+"</a><button class='butt'><a id='results' href='contactus.html'>Results</a></button></h3></div></div>";
+			  document.getElementById('test').innerHTML +=
+			  "<div class='card'id='card1'>"+
+				"<div class:'container'>"+
+					"<h3>"+
+						"<a href='contactus.html'>"+myArr2[i]+"</a>"+
+						"<button class='butt'><a id='results' href='contactus.html'>Results</a></button>"+
+					"</h3>"+
+				"</div>"+
+			  "</div>";
 			  }
 		  }
 		  xhr.send();
