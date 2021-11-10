@@ -1,7 +1,8 @@
-/* Stylesheet for surveyhome2 */
+/* Stylesheet for surveyhome2 (for takesurvey page*/
 html {
 	background-color:rgba(145, 191, 191, .8);
 	font-family: arial;
+	min-width: 660px;
 }
 body {
 	margin-left:10%;
