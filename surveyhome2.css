@@ -170,9 +170,9 @@ li a {
 
 @keyframes slidein {
     from {
-		margin: 75% /*-100% -25% 150%*/ 0% 0% 0%;
+		margin: 75% /*-100% (right) -25% 150%* (left)/ 0% 0% 0%;
         /*margin-left: 150%;
-		margin-right: -100%;*/
+		    margin-right: -100%;*/
 		
     }
     to {
