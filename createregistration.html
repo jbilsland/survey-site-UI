@@ -8,6 +8,19 @@
       <title>The Creighton ROTC Survey Destination</title>
 	  <link rel="stylesheet" href="surveyhome.css">
 	  <!--<script src="processRegistration.js"></script> -->
+	  <script> function myFunction() {
+		let userInput = document.getElementById('eventName').value;
+		let dbSurvey = {name:userInput,templateName:"Event Registration"};
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST','http://localhost:8080/createSurvey',true);
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.send(JSON.stringify(dbSurvey));
+		console.log(dbSurvey);
+		//document.write("<p>Thank you for creating the survey: "+JSON.stringify(dbSurvey)+"<a href='companysurveysite.html'> Home</a></p>");
+		//document.getElementById('finish').innerHTML = "<p>Thank you for creating the survey: "+JSON.stringify(dbSurvey)+"<a href='companysurveysite.html'> Home</a></p>";
+		window.alert('Thank you for creating the survey: ' + userInput); //+JSON.stringify(dbSurvey));
+	  }
+	</script>
 	  
    </head>
    
@@ -40,7 +53,7 @@
 			<p>How many people are you bringing with you? (Number)</p>
 			
 			<!--<p><button type="submit" id="registerbtn">Publish survey</button></p> -->
-			<input type = "submit" value = "Publish" onclick="getCreateRegistrationInfo()" />
+			<input type = "submit" value = "Publish" onclick="myFunction()" />
 		</form>
 		
 		

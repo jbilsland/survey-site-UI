@@ -17,10 +17,17 @@ h1 {
 	color: black;
 }
 
-h3 a {
+h3 button {
 	color:blue;
 	text-decoration:underline solid blue;
-	margin: 20px;
+	/*margin: 20px;
+	margin-bottom:100px;*/
+}
+
+#surveybro {
+	float:left;
+	margin-left:10px;
+	font-size: 22px;
 }
 
 ul {

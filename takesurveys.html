@@ -13,21 +13,43 @@
 		  xhr.onload = function loadQuestions2() { //this function loads all of the suvey names in the db
 			  var surveryQuestions = xhr.response;
 			  var myArr = JSON.parse(surveryQuestions);
-			  var myArr2 = myArr.reverse(); //displays the survey with the most recent at the top
+			  window.myArr2 = myArr.reverse(); //displays the survey with the most recent at the top
 			  for (let i = 0; i<myArr2.length; i++){
 			  document.getElementById('test').innerHTML +=
 			  "<div class='card'id='card1'>"+
-				"<div class:'container'>"+
+				"<div class:'container' onclick='myFunction()'>"+
 					"<h3>"+
-						"<a href='contactus.html'>"+myArr2[i]+"</a>"+
-						"<button class='butt'><a id='results' href='contactus.html'>Results</a></button>"+
+						"<button id='surveybro' value='"+window.myArr2[i]+"'>"+window.myArr2[i]+"</a>"+
+						"<button class='butt' type='button' onclick='myFunction()'>Results</button>"+
 					"</h3>"+
 				"</div>"+
 			  "</div>";
 			  }
 		  }
 		  xhr.send();
-		}
+		  }
+		  
+		  function myFunction() {
+			var test= document.getElementById('test');
+			var title= document.getElementById('title');
+			var survey=document.getElementById('surveybro').value;
+			test.remove();
+			title.remove();
+			document.getElementById('demo').innerHTML="<h2>"+survey+"</h2>";
+			
+			var xhr1 = new XMLHttpRequest();
+			xhr1.open('GET', 'http://localhost:8080/getQuestionsByTemplate?templateName=Event Registration', true);
+			xhr1.onload = function loadQuestions () {
+			var data = JSON.parse(xhr1.responseText);
+			for (let index = 0; index <= data.length; index++) {
+				console.log("Question " + data[index].id +  ": " + data[index].name);
+				document.getElementById('demo').innerHTML +="<br /> Question " + data[index].id +  ": " + data[index].name + "   <input type='text' id='Q"+data[index].id+"' name='Q"+data[index].id+"'>";
+			}
+			}
+			xhr1.send();
+		  }
+		  
+		
 	  </script>
    </head>
    
@@ -49,11 +71,12 @@
 			<ul>
 		</nav>
 		
-		<h2> Take a Survey </h2>
+		<h2 id='title'> Take a Survey </h2>
 		
 		<div id="surveys">
 		
 		</div>
-		<p id='test'></p>		
+		<p id='test'></p>
+		<p id='demo'></p>
    </body>
  </html>

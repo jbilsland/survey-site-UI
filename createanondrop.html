@@ -8,6 +8,19 @@
       <title>The Creighton ROTC Survey Destination</title>
 	  <link rel="stylesheet" href="surveyhome.css">
 	  <script src="processRegistration.js"></script>
+	  <script> function myFunction() {
+		let userInput = document.getElementById('fbName').value;
+		let dbSurvey = {name:userInput,templateName:"Anonymous Feedback"};
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST','http://localhost:8080/createSurvey',true);
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.send(JSON.stringify(dbSurvey));
+		console.log(dbSurvey);
+		//document.write("<p>Thank you for creating the survey: "+JSON.stringify(dbSurvey)+"<a href='companysurveysite.html'> Home</a></p>");
+		//document.getElementById('finish').innerHTML = "<p>Thank you for creating the survey: "+JSON.stringify(dbSurvey)+"<a href='companysurveysite.html'> Home</a></p>";
+		window.alert('Thank you for creating the survey: ' + userInput); //+JSON.stringify(dbSurvey));
+	  }
+	  </script>
    </head>
    
    <body> 
@@ -38,7 +51,7 @@
 			<p><b>Questions to be asked</b><p>
 			<p>Feedback (textbox)</p>
 			<!--<button type="submit" class="publishAnonFeed">Publish</button> -->
-			<input type = "submit" value = "Publish" onclick="getCreateAnonFBInfo()" />
+			<input type = "submit" value = "Publish" onclick="myFunction()" />
 		</form>
 		
 		
