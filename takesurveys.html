@@ -7,7 +7,11 @@
       <meta charset = "utf-8">
       <title>The Creighton ROTC Survey Destination</title>
 	  <link rel="stylesheet" href="surveyhome2.css">
-	  <script> function loadQuestions() {
+	 <script>
+		 let currQuestions = [];
+		 let currAnswers = [];
+	 </script>
+	 <script> function loadQuestions() {
 		  var xhr = new XMLHttpRequest();
 		  xhr.open('GET','http://localhost:8080/getALlSurveyNames',true)
 		  xhr.onload = function loadQuestions2() { //this function loads all of the suvey names in the db
@@ -17,39 +21,72 @@
 			  for (let i = 0; i<myArr2.length; i++){
 			  document.getElementById('test').innerHTML +=
 			  "<div class='card'id='card1'>"+
-				"<div class:'container' onclick='myFunction()'>"+
+				"<div class:'container'>"+
 					"<h3>"+
-						"<button id='surveybro' value='"+window.myArr2[i]+"'>"+window.myArr2[i]+"</a>"+
-						"<button class='butt' type='button' onclick='myFunction()'>Results</button>"+
+						"<button id='surveybro' onclick='myFunction()' value='"+window.myArr2[i]+"'>"+window.myArr2[i]+
+						"<button class='butt' type='button' onclick='loadResp()'>Results</button>"+
 					"</h3>"+
 				"</div>"+
 			  "</div>";
 			  }
 		  }
 		  xhr.send();
-		  }
+		 }
 		  
-		  function myFunction() {
+		function myFunction() {
 			var test= document.getElementById('test');
 			var title= document.getElementById('title');
 			var survey=document.getElementById('surveybro').value;
 			test.remove();
 			title.remove();
-			document.getElementById('demo').innerHTML="<h2>"+survey+"</h2>";
+			document.getElementById('demo').innerHTML="<h2 id='surveryNameOnLoad'>"+survey+"</h2>";
 			
 			var xhr1 = new XMLHttpRequest();
 			xhr1.open('GET', 'http://localhost:8080/getQuestionsByTemplate?templateName=Event Registration', true);
 			xhr1.onload = function loadQuestions () {
 			var data = JSON.parse(xhr1.responseText);
-			for (let index = 0; index <= data.length; index++) {
+			for (let index = 0; index < data.length; index++) {
 				console.log("Question " + data[index].id +  ": " + data[index].name);
+				currQuestions[index] = data[index].name
 				document.getElementById('demo').innerHTML +="<br /> Question " + data[index].id +  ": " + data[index].name + "   <input type='text' id='Q"+data[index].id+"' name='Q"+data[index].id+"'>";
 			}
+			document.getElementById('button').innerHTML +="<button onclick='submitAnswers()'>Submit</button>";
 			}
 			xhr1.send();
 		  }
-		  
-		
+
+		function submitAnswers() {
+			let responeMap = {'surveyName':document.getElementById('surveryNameOnLoad').innerHTML,'templateName':'Event Registration'};
+			let questionAndAnswerMap = {}
+			for (let index = 1; index <= currQuestions.length; index++) {
+				var currAnswerInputObject = document.getElementById('Q'+index.toString())
+				currAnswerInputValue = currAnswerInputObject.value;
+				questionAndAnswerMap[currQuestions[index-1]] = currAnswerInputValue;
+			}
+			console.log(responeMap);
+			console.log(questionAndAnswerMap);
+			responeMap['questionAnswerMap'] = questionAndAnswerMap;
+			console.log(responeMap);
+			
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST','http://localhost:8080/submitAnswers',true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.send(JSON.stringify(responeMap));
+			window.alert("Thank you for submitting answers to " + document.getElementById('surveryNameOnLoad').innerHTML);
+			location.reload();
+		}
+
+		function loadResp() {
+			console.log("Function is working");
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'http://localhost:8080/getSurveyResponses?surveyId=10', true);
+			xhr.onload = function loadResp2() {
+			var surveryResponces = xhr.response;
+			  var myArr = JSON.parse(surveryResponces);
+			  console.log(myArr);
+			}
+			xhr.send();
+		}
 	  </script>
    </head>
    
@@ -78,5 +115,7 @@
 		</div>
 		<p id='test'></p>
 		<p id='demo'></p>
+		<p id='button'></p>
+		
    </body>
  </html>
