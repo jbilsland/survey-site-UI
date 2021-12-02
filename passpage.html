@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 
-<!-- home page of the rotc survey machine -->
-<!-- surveyresults.html -->
+<!-- shows survey results -->
+<!-- resultspass.html -->
 <html>
    <head>
       <meta charset = "utf-8">
       <title>The Creighton ROTC Survey Destination</title>
-	  <link rel="stylesheet" type="text/css" href="surveyhome.css">
+	  <link rel="stylesheet" href="surveyhome2.css">
+	 <script>
+		 let currQuestions = [];
+		 let currAnswers = [];
+	 </script>
+	 <script> 
+	 function checkPassword(){
+		 var pass= document.getElementById('password').value;
+		 var password=parseInt(pass);
+		 if (password==1){
+		 window.location.href = 'resultspass.html';
+		 } else {
+		 document.write('Password is not correct, try again');
+		 }
+	 }
+	</script>
    </head>
    
-   <body> 
+   <body>
 		<!--<img id "logo2" alt="Logo" src="curotclogo.jpeg">-->
 		<div class="head">
 			<img id "logo3" alt="Logo" src="cuschoollogo.png">
@@ -26,11 +41,14 @@
 				<li><a href="https://www.creighton.edu/groups/armyrotc/whatisarmyrotc/"> About Us</a></li>
 				<li><a href="contactus.html"> Contact Us</a></li>
 			<ul>
-		</nav>	
-	
-		<h4> hjlkjk </h4>
-		<table border=1><tr><td>What is your name</td><td>What items will you be brining</td><td>How many people are you brining?</td><td>What time works best for you?</td><tr></table>
-
+		</nav>
+		
+		<h2 id='title'> Results </h2>
+		<form>
+			<label for="password">Password</label><br>
+			<input type="text" id="password" name="password"><br>
+		</form>
+		<button onclick="checkPassword()">Check password</button>
 		
    </body>
-</html>
+ </html>

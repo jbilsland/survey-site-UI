@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<!-- survey liss page of the rotc survey machine -->
-<!-- takesurveys.html -->
+<!-- shows survey results -->
+<!-- resultspass.html -->
 <html>
    <head>
       <meta charset = "utf-8">
@@ -11,7 +11,8 @@
 		 let currQuestions = [];
 		 let currAnswers = [];
 	 </script>
-	 <script> function loadQuestions() {
+	 <script> 
+	 function loadQuestions() {
 		  var xhr = new XMLHttpRequest();
 		  xhr.open('GET','http://localhost:8080/getALlSurveyNames',true)
 		  xhr.onload = function loadQuestions2() { //this function loads all of the suvey names in the db
@@ -19,15 +20,8 @@
 			  var myArr = JSON.parse(surveryQuestions);
 			  window.myArr2 = myArr.reverse(); //displays the survey with the most recent at the top
 			  for (let i = 0; i<myArr2.length; i++){
-			  document.getElementById('test').innerHTML +=
-			  "<div class='card'id='card1'>"+
-				"<div class:'container'>"+
-					"<h3>"+
-						"<button id='surveybro' onclick='myFunction()' value='"+window.myArr2[i]+"'>"+window.myArr2[i]+
-						"<button class='butt' type='button' onclick='loadResp()'>Results</button>"+
-					"</h3>"+
-				"</div>"+
-			  "</div>";
+			  document.getElementById('surveys1').innerHTML+=
+			  "<option id='"+window.myArr2[i]+"' value='"+window.myArr2[i]+"'>";
 			  }
 		  }
 		  xhr.send();
@@ -109,12 +103,22 @@
 			<ul>
 		</nav>
 		
-		<h2 id='title'> Take a Survey </h2>
+		<h2 id='title'> Results </h2>
 		
 		<div id="surveys">
 		
 		</div>
-		<p id='test'></p>
+		<div id='test'></div>
+			<form>
+				<input list="surveys1" name="surveys1">
+				<datalist id="surveys1">
+					
+				</datalist>
+				<input type="submit" value="go">
+			</form>
+		</div>
+		
+		
 		<p id='demo'></p>
 		<p id='button'></p>
 		
