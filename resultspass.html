@@ -87,7 +87,7 @@
 			  document.getElementById('demo').innerHTML = "<h2 id='surveryNameOnLoad'>"+survey+"</h2> <br />";
 			  for (let index = 0; index < myArr.length; index++) {
 				  console.log("Question: " + myArr[index].question + "                        Response: " + myArr[index].response);
-				  document.getElementById('demo').innerHTML += "<br /> Question: "+ myArr[index].question + "<br /> Response: "+ myArr[index].response +  "<br /> <br />";
+				  document.getElementById('table').innerHTML += "<td> &nbsp&nbsp&nbsp"+ myArr[index].question + "</td><td>&nbsp&nbsp&nbsp "+ myArr[index].response +  "</td></tr>";
 			  }
 			  document.getElementById('demo').innerHTML += "<button onclick='reloadPage()'>Exit</button>"
 			  
@@ -134,6 +134,8 @@
 		
 		<p id="name"></p>
 		<p id='demo'></p>
+		<table id='table' border=1>
+		</table>
 		<p id='button'></p>
    </body>
  </html>
